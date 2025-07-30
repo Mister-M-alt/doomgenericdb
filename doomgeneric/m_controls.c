@@ -154,8 +154,8 @@ int key_menu_left      = KEY_LEFTARROW;
 int key_menu_right     = KEY_RIGHTARROW;
 int key_menu_back      = KEY_BACKSPACE;
 int key_menu_forward   = KEY_ENTER;
-int key_menu_confirm   = 'y';
-int key_menu_abort     = 'n';
+int key_menu_confirm   = KEY_ENTER;
+int key_menu_abort     = KEY_ESCAPE;
 
 int key_menu_help      = KEY_F1;
 int key_menu_save      = KEY_F2;

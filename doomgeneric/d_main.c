@@ -74,6 +74,7 @@
 
 #include "d_main.h"
 
+int DG_menuActive;
 //
 // D-DoomLoop()
 // Not a globally visible function,
@@ -182,6 +183,7 @@ void D_Display (void)
     boolean			wipe;
     boolean			redrawsbar;
 
+    DG_menuActive = menuactive;
     if (nodrawers)
     	return;                    // for comparative timing / profiling
 		
@@ -392,8 +394,8 @@ boolean D_GrabMouseCallback(void)
     if (drone)
         return false;
 
-    // when menu is active or game is paused, release the mouse 
- 
+    // when menu is active or game is paused, release the mouse
+
     if (menuactive || paused)
         return false;
 

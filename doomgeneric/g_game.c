@@ -917,7 +917,7 @@ void G_Ticker (void)
 		G_ReadDemoTiccmd (cmd); 
 	    if (demorecording) 
 		G_WriteDemoTiccmd (cmd);
-	    
+
 	    // check for turbo cheats
 
             // check ~ 4 seconds whether to display the turbo message. 
@@ -1022,10 +1022,10 @@ void G_Ticker (void)
       case GS_DEMOSCREEN: 
 	D_PageTicker (); 
 	break;
-    }        
-} 
- 
- 
+    }
+}
+
+
 //
 // PLAYER STRUCTURE FUNCTIONS
 // also see P_SpawnPlayer in P_Things

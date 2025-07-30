@@ -34,8 +34,8 @@
 //	M_Menu.C
 //
 #define PRESSKEY 	"press a key."
-#define PRESSYN 	"press y or n."
-#define QUITMSG	"are you sure you want to\nquit this great game?"
+#define PRESSYN 	"tap screen (yes) or press encoder (no)\n\n ."
+#define QUITMSG	    "are you sure you want to\nquit this great game?"
 #define LOADNET 	"you can't do load while in a net game!\n\n"PRESSKEY
 #define QLOADNET	"you can't quickload during a netgame!\n\n"PRESSKEY
 #define QSAVESPOT	"you haven't picked a quicksave slot yet!\n\n"PRESSKEY
@@ -60,7 +60,7 @@
 #define NETEND	"you can't end a netgame!\n\n"PRESSKEY
 #define ENDGAME	"are you sure you want to end the game?\n\n"PRESSYN
 
-#define DOSY		"(press y to quit to dos.)"
+#define DOSY		"(tap screen to quit to your Amp.)"
 
 #define DETAILHI	"High detail"
 #define DETAILLO	"Low detail"

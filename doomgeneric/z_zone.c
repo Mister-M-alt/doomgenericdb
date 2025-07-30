@@ -110,12 +110,12 @@ void Z_Init (void)
     mainzone->blocklist.user = (void *)mainzone;
     mainzone->blocklist.tag = PU_STATIC;
     mainzone->rover = block;
-	
+
     block->prev = block->next = &mainzone->blocklist;
 
     // free block
     block->tag = PU_FREE;
-    
+
     block->size = mainzone->size - sizeof(memzone_t);
 }
 
