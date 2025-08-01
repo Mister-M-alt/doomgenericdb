@@ -72,6 +72,8 @@
 #include "r_local.h"
 #include "statdump.h"
 
+#include "m_safe_malloc.h"
+
 #include "d_main.h"
 
 int DG_menuActive;
@@ -1083,8 +1085,6 @@ static void D_Endoom(void)
     endoom = W_CacheLumpName(DEH_String("ENDOOM"), PU_STATIC);
 
     I_Endoom(endoom);
-
-	exit(0);
 }
 
 #if ORIGCODE

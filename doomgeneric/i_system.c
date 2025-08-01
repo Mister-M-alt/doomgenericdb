@@ -35,6 +35,7 @@
 #endif
 
 #include "config.h"
+#include "doomgeneric.h"
 
 #include "deh_str.h"
 #include "doomtype.h"
@@ -47,6 +48,7 @@
 #include "i_video.h"
 
 #include "i_system.h"
+#include "m_safe_malloc.h"
 
 #include "w_wad.h"
 #include "z_zone.h"
@@ -74,7 +76,7 @@ void I_AtExit(atexit_func_t func, boolean run_on_error)
 {
     atexit_listentry_t *entry;
 
-    entry = malloc(sizeof(*entry));
+    entry = safe_malloc(sizeof(*entry));
 
     entry->func = func;
     entry->run_on_error = run_on_error;
@@ -116,7 +118,7 @@ static byte *AutoAllocMemory(int *size, int default_ram, int min_ram)
 
         *size = default_ram * 1024 * 1024;
 
-        zonemem = malloc(*size);
+        zonemem = safe_malloc(*size);
 
         // Failed to allocate?  Reduce zone size until we reach a size
         // that is acceptable.
@@ -248,14 +250,17 @@ void I_Quit (void)
     atexit_listentry_t *entry;
 
     // Run through all exit functions
- 
-    entry = exit_funcs; 
 
-    while (entry != NULL)
-    {
-        entry->func();
-        entry = entry->next;
-    }
+    // entry = exit_funcs;
+
+    // while (entry != NULL)
+    // {
+    //     entry->func();
+    //     entry = entry->next;
+    // }
+
+    // safe_free_all();
+    DG_doomFinished = 1;
 
 #if ORIGCODE
     SDL_Quit();
@@ -283,7 +288,7 @@ static char *EscapeShellString(char *string)
     char *r, *s;
 
     // In the worst case, every character might be escaped.
-    result = malloc(strlen(string) * 2 + 3);
+    result = safe_malloc(strlen(string) * 2 + 3);
     r = result;
 
     // Enclosing quotes.
@@ -335,7 +340,7 @@ static int ZenityErrorBox(char *message)
     escaped_message = EscapeShellString(message);
 
     errorboxpath_size = strlen(ZENITY_BINARY) + strlen(escaped_message) + 19;
-    errorboxpath = malloc(errorboxpath_size);
+    errorboxpath = safe_malloc(errorboxpath_size);
     M_snprintf(errorboxpath, errorboxpath_size, "%s --error --text=%s",
                ZENITY_BINARY, escaped_message);
 

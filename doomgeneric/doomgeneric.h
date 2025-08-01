@@ -25,6 +25,7 @@ typedef uint32_t pixel_t;
 
 
 extern pixel_t* DG_ScreenBuffer;
+extern int DG_doomFinished;
 
 #ifdef __cplusplus
 extern "C" {
@@ -41,7 +42,8 @@ void DG_SleepMs(uint32_t ms);
 uint32_t DG_GetTicksMs();
 int DG_GetKey(int* pressed, unsigned char* key);
 void DG_SetWindowTitle(const char * title);
-
+void DG_requestStop(void);
+int DG_isGameStopped(void);
 void DoomDB_addKeyToQueue(int pressed, unsigned int keyCode);
 
 #ifdef __cplusplus

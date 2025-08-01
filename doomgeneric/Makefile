@@ -34,7 +34,7 @@ p_setup.o p_sight.o p_spec.o p_switch.o p_telept.o p_tick.o p_user.o r_bsp.o \
 r_data.o r_draw.o r_main.o r_plane.o r_segs.o r_sky.o r_things.o sha1.o sounds.o \
 statdump.o st_lib.o st_stuff.o s_sound.o tables.o v_video.o wi_stuff.o w_checksum.o \
 w_file.o w_main.o w_wad.o z_zone.o w_file_stdc.o i_input.o i_video.o \
-doomgeneric_db.o mus2mid.o doomgeneric.o
+doomgeneric_db.o mus2mid.o m_safe_malloc.o doomgeneric.o
 
 OBJS += $(addprefix $(OBJDIR)/, $(SRC_DOOM))
 
@@ -46,8 +46,8 @@ clean:
 	rm -f $(OUTPUT)
 	rm -f $(OUTPUT).gdb
 	rm -f $(OUTPUT).map
-	rm -f $(OUTPUT).so.$(VERSION)
-	rm -f $(OUTPUT).so
+	rm -f lib$(OUTPUT).so.$(VERSION)
+	rm -f lib$(OUTPUT).so
 
 lib$(OUTPUT).so.$(VERSION):	$(OBJS)
 	@echo [Linking $@]

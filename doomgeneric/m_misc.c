@@ -48,6 +48,8 @@
 #include "w_wad.h"
 #include "z_zone.h"
 
+#include "m_safe_malloc.h"
+
 //
 // Create a directory
 //
@@ -335,7 +337,7 @@ char *M_StringReplace(const char *haystack, const char *needle,
 
     // Construct new string.
 
-    result = malloc(result_len);
+    result = safe_malloc(result_len);
     if (result == NULL)
     {
         I_Error("M_StringReplace: Failed to allocate new string");
@@ -445,7 +447,7 @@ char *M_StringJoin(const char *s, ...)
     }
     va_end(args);
 
-    result = malloc(result_len);
+    result = safe_malloc(result_len);
 
     if (result == NULL)
     {

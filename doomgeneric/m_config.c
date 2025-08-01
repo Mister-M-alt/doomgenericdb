@@ -35,11 +35,13 @@
 
 #include "z_zone.h"
 
+#include "m_safe_malloc.h"
+
 //
 // DEFAULTS
 //
 
-// Location where all configuration data is stored - 
+// Location where all configuration data is stored -
 // default.cfg, savegames, etc.
 
 char *configdir;
@@ -2042,7 +2044,7 @@ float M_GetFloatVariable(char *name)
 
 static char *GetDefaultConfigDir(void)
 {
-    char *result = (char *)malloc(2);
+    char *result = (char *)safe_malloc(2);
     result[0] = '.';
     result[1] = '\0';
 

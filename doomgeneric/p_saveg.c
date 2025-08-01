@@ -33,15 +33,17 @@
 #include "m_misc.h"
 #include "r_state.h"
 
+#include "m_safe_malloc.h"
+
 #define SAVEGAME_EOF 0x1d
-#define VERSIONSIZE 16 
+#define VERSIONSIZE 16
 
 FILE *save_stream;
 int savegamelength;
 boolean savegame_error;
 
 // Get the filename of a temporary file to write the savegame to.  After
-// the file has been successfully saved, it will be renamed to the 
+// the file has been successfully saved, it will be renamed to the
 // real file.
 
 char *P_TempSaveGameFile(void)
@@ -67,7 +69,7 @@ char *P_SaveGameFile(int slot)
     if (filename == NULL)
     {
         filename_size = strlen(savegamedir) + 32;
-        filename = malloc(filename_size);
+        filename = safe_malloc(filename_size);
     }
 
     DEH_snprintf(basename, 32, SAVEGAMENAME "%d.dsg", slot);
